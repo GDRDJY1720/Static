@@ -1,0 +1,31 @@
+
+
+#back-image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+#con_main{
+    margin-top: 150px;
+}
+#con_main>div{
+    background-color: white;
+}
+
+#con_title{
+    text-align: center;
+    color: blue;
+}
+
+#con_warning{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* #con_form{
+    
+} */
