@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
-    <link rel="stylesheet" href="./layui/css/layui.css">
-    <link rel="stylesheet" href="./master.css">
+    <link rel="stylesheet" href="../Master/layui/css/layui.css">
+    <link rel="stylesheet" href="../Master/master.css">
+    <link rel="stylesheet" href="./deviceInfo.css">
 </head>
 
 <body class="layui-layout-body">
@@ -48,38 +49,42 @@
             </ul>
         </div>
 
-        <!-- 下面两个终端不同的竖列导航中的具体导航全部使用js进行内容填充 -->
+        <!-- 竖列导航中的内容直接模板固定，但是选择哪个展开使用js进行class的添加 -->
         <div id="phone">
-            <!-- 移动端竖列导航 -->
             <div id="icon">
                 <i class="layui-icon layui-icon-spread-left"></i>
             </div>
             <ul id="phone-tree" class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
                 <li class="layui-nav-item"><a href="">产品</a></li>
                 <li class="layui-nav-item"><a href="">设备</a></li>
-                <!-- 当有详细分支的时候再使用下拉菜单的方式 -->
-                <!-- <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">产品</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">产品详情</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">设备</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">设备详情</a></dd>
-                    </dl>
-                </li> -->
+
             </ul>
             <div id="mask"></div>
         </div>
 
         <div id="pc" class="layui-side layui-bg-black">
-            <!-- 电脑端竖列导航 -->
             <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul id="pc-tree" class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item"><a href="">产品</a></li>
-                    <li class="layui-nav-item"><a href="">设备</a></li>
+                    <!-- <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">所有商品</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="javascript:;">列表三</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">云市场</a></li>
+                    <li class="layui-nav-item"><a href="">发布商品</a></li> -->
                 </ul>
             </div>
         </div>
@@ -91,13 +96,39 @@
                     <a href="">首页</a>
                 </span>
             </div>
-
             <div id="body_primary" class="am-cf am-padding">
                 <div id="primary" class="am-fl am-cf"></div>
             </div>
 
             <!-- 其余的内容使用栅格系统进行放置-->
-            <div class="layui-container"></div>
+            <div class="layui-container">
+                <table lay-filter="demo">
+                    <thead>
+                        <tr>
+                            <th lay-data="{field:'username', width:100}">昵称</th>
+                            <th lay-data="{field:'experience', width:80, sort:true}">积分</th>
+                            <th lay-data="{field:'sign'}">签名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>贤心1</td>
+                            <td>66</td>
+                            <td>人生就像是一场修行a</td>
+                        </tr>
+                        <tr>
+                            <td>贤心2</td>
+                            <td>88</td>
+                            <td>人生就像是一场修行b</td>
+                        </tr>
+                        <tr>
+                            <td>贤心3</td>
+                            <td>33</td>
+                            <td>人生就像是一场修行c</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="layui-footer">
@@ -106,7 +137,7 @@
         </div>
     </div>
 
-    <script src="./layui/layui.js"></script>
+    <script src="../Master/layui/layui.js"></script>
     <script src="../common/jquery-1.10.1.min.js"></script>
     <script>
         //JavaScript代码区域
@@ -136,6 +167,26 @@
                 $(this).css('display', 'none');
             })
 
+        })
+    </script>
+    <!-- <script src="./deviceInfo.js"></script> -->
+
+
+    <script>
+        $(function () {
+            layui.use('table', function () {
+                var table = layui.table;
+
+                table.init('demo', {
+                    height: 315 //设置高度
+                    , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
+                    //支持所有基础参数
+                });
+            })
+
+            // 当前页面的面包屑创建
+            $('<a><cite>设备详情</cite></a>').appendTo($('#breadcrumb'));
+            $('<strong class="text-primary">设备详情</strong>/<small>查看所拥有的设备详情</small>').appendTo($('#primary'));
         })
     </script>
 </body>

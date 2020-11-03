@@ -39,13 +39,13 @@
 
 
 @media all and (max-width: 768px){
-    #header-logo, #tree{
+    #header-logo, #pc{
         display: none;
     }
     #icon, #phone-tree{
         display: block;
     }
-    .layui-body{
+    .layui-body, .layui-layout-admin .layui-footer{
         left: 0;
     }
 }
