@@ -106,7 +106,26 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
+            <div id="body_breadcrumb">
+                <span id="breadcrumb" class="layui-breadcrumb">
+                    <a href="">首页</a>
+                    <a href="">国际新闻</a>
+                    <a href="">亚太地区</a>
+                    <a><cite>正文</cite></a>
+                </span>
+            </div>
+            <div id="body_primary" class="am-cf am-padding">
+                <div id="primary" class="am-fl am-cf">
+                    <strong class="text-primary">设备详情</strong>
+                     /
+                    <small>查看所拥有的设备详情</small>
+                </div>
+            </div>
+
             <div class="layui-container">
+                <div class="layui-row">
+
+                </div>
                 <div class="layui-row">
                     <div class="layui-col-md8 layui-col-xs12">
                         col-md8 col-xs12
@@ -115,7 +134,7 @@
                         col-md4 col-xs12
                     </div>
                 </div>
-              </div>  
+            </div>
         </div>
 
         <div class="layui-footer">
@@ -132,22 +151,22 @@
             var element = layui.element;
         });
 
-        $(function(){
+        $(function () {
             var phTree = $('#phone-tree');
             var w = $(document).width() + 'px';
             var h = $(document).height() + 'px';
 
-            $("#icon").click(function(){
+            $("#icon").click(function () {
                 phTree.animate({
                     left: 0,
                 }, 500);
 
                 // 将遮罩层设置到与屏幕相同大小
                 $('#mask').css('display', 'block')
-                .css('width', w).css('height', h);
+                    .css('width', w).css('height', h);
             });
 
-            $('#mask').click(function(){
+            $('#mask').click(function () {
                 phTree.animate({
                     left: -300,
                 }, 500);

@@ -49,3 +49,42 @@
         left: 0;
     }
 }
+
+/* #breadcrumb{
+    background-color: gray;
+} */
+
+#body_breadcrumb{
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-bottom: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 2px solid gray;
+}
+
+#body_primary{
+    border-bottom: 2px solid burlywood;
+}
+
+.text-primary {
+    color: #0e90d2;
+    font-size: 18px;
+}
+
+.am-cf:after, .am-cf:before {
+    content: " ";
+    display: table;
+}
+
+.am-cf:after {
+    clear: both;
+}
+
+.am-fl {
+    float: left;
+}
+
+.am-padding {
+    padding: 16px;
+}
