@@ -106,7 +106,16 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">内容主体区域</div>
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md8 layui-col-xs12">
+                        col-md8 col-xs12
+                    </div>
+                    <div class="layui-col-md4 layui-col-xs12">
+                        col-md4 col-xs12
+                    </div>
+                </div>
+              </div>  
         </div>
 
         <div class="layui-footer">
@@ -125,27 +134,25 @@
 
         $(function(){
             var phTree = $('#phone-tree');
-            var w = $(document).width();
-            var h = $(document).height()
+            var w = $(document).width() + 'px';
+            var h = $(document).height() + 'px';
 
             $("#icon").click(function(){
                 phTree.animate({
                     left: 0,
                 }, 500);
-                // 将遮罩层的长宽设置到与页面长宽相同， 同时取消隐藏
-                $('#mask').css({
-                    display: block,
-                    width: w, 
-                    height: h
-                });
+
+                // 将遮罩层设置到与屏幕相同大小
+                $('#mask').css('display', 'block')
+                .css('width', w).css('height', h);
             });
 
-            $(document).on('click', '#icon', function(){
+            $('#mask').click(function(){
                 phTree.animate({
-                    left: 0,
+                    left: -300,
                 }, 500);
+                $(this).css('display', 'none');
             })
-            .on('')
 
         })
     </script>
